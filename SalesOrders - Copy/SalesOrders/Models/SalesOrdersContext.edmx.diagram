@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="da30ee79440d4ad3b4092cc2dfa9b2d3" Name="Diagram1">
+        <EntityTypeShape EntityType="SalesOrders1Model.Category" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrders1Model.Customer" Width="1.5" PointX="0.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrders1Model.Employee" Width="1.5" PointX="5.625" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrders1Model.OrderDetail" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrders1Model.Order" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrders1Model.Product" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrders1Model.ProductVendor" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrders1Model.Vendor" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="SalesOrders1Model.ProductsFK00" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesOrders1Model.OrdersFK00" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesOrders1Model.OrdersFK01" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesOrders1Model.OrderDetailsFK00" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesOrders1Model.OrderDetailsFK01" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesOrders1Model.ProductVendorsFK00" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesOrders1Model.ProductVendorsFK01" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

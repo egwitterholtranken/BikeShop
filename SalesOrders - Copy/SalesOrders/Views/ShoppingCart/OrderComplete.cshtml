@@ -1,0 +1,84 @@
+﻿@model SalesOrders.Models.ShoppingCartModel
+@using SalesOrders.HtmlHelpers
+
+@{
+    ViewBag.Title = "Thanks";
+}
+
+<h2>Thanks for your order!</h2>
+
+<br />
+
+<div id="orderReceipt">
+
+    <div id="receiptHeader">
+        <h2>Receipt</h2>
+        <br />
+        <h4>Order Confirmation Number: @DateTime.Now.Month@DateTime.Now.Day@DateTime.Now.Year@DateTime.Now.Hour@DateTime.Now.Minute@DateTime.Now.Second</h4>
+        <br />
+
+        <p class="receiptInfo"><strong>Customer Name:</strong> @Model.BillingInfo.FirstName @Model.BillingInfo.LastName</p>
+        <p class="receiptInfo"><strong>Shipping Address:</strong> @Model.ShippingInfo.Address, @Model.ShippingInfo.City, @Model.ShippingInfo.State</p>
+        <p class="receiptInfo"><strong>Order Placed On:</strong> @DateTime.Now</p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @{ decimal subTotal = 0;}
+
+                @foreach (var item in Model.Items)
+                {
+                <tr>
+                    <td>@item.Product.ProductName</td>
+                    <td>@item.Quantity</td>
+                    <td>$@item.Product.ProductPrice</td>
+
+                    @{subTotal += ((item.Quantity * item.Product.ProductPrice).Value);}
+
+                    <td>$@subTotal</td>
+                </tr>
+                        }
+            </tbody>
+
+            <tfoot>
+                @{ const double taxRate = 0.10; }
+                @{ decimal? total = 0;}
+
+                @foreach (var item in Model.Items)
+                {
+                    total += (@item.Product.ProductPrice * @item.Quantity);
+                }
+
+                @{ decimal? taxAmount = total * Convert.ToDecimal(taxRate);}
+
+                @{total = @total + @taxAmount; }
+
+                <tr>
+                    <td colspan="4"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"></td>
+                    <td colspan="1"><strong>Tax:</strong></td>
+                    <td>$@string.Format("{0:#.00}", taxAmount)</td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"></td>
+                    <td colspan="1"><strong>Total:</strong></td>
+                    <td>$@string.Format("{0:#.00}", total)</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+

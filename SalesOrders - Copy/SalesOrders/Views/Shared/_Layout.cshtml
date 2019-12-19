@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - The Bike Shop Application</title>
+    @Styles.Render("~/Content/bootswatch.css")
+    <link rel="stylesheet" href="~/Content/MenuStyles.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/Styles.css" type="text/css" />
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/jquery-1.8.3.min.js"></script>
+    <script src="~/Scripts/min/menumaker.min.js"></script>
+    @RenderSection("scripts", required: false)
+</head>
+
+<body>
+    <header id="header">
+      <h1>THE BIKE SHOP</h1>
+        <div id="cssmenu">
+            <ul>
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <li>@Html.ActionLink("Shop", "Index", "Shop")</li>
+                <li>@Html.ActionLink("Cart", "Index", "ShoppingCart")</li>
+                <li>@Html.ActionLink("Login", "Index", "Login")</li>
+                <li>@Html.ActionLink("Register", "Index", "Register")</li>
+            </ul>
+        </div>
+    </header>
+
+    <div id="main">
+        <div id="renderBody">
+            @RenderBody()
+        </div>
+    </div>
+
+    <footer>&copy THE BIKE SHOP 2019</footer>
+
+    <script type="text/javascript">
+        $("#cssmenu").menumaker({
+            title: "Menu",
+            format: "multitoggle"
+        });
+    </script>
+
+    <script>
+                var slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";
+          dots[slideIndex-1].className += " active";
+        }
+    </script>
+</body>
+</html>    
